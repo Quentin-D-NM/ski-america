@@ -1,5 +1,3 @@
-# Ski America 
-
 ## Introduction 
 
 
