@@ -5,12 +5,15 @@
 
 
 ## Intended Users 
+Skier, Snowboarders, and Resort employees looking for weather information on a particular Ski Resort. 
+
+[User stories](docs/user-stories.md)
 
 
 ## First Milestone
 
 * [ ] Description 
-* [ ] Intended users
+* [x] Intended users
 * [ ] ERDs
 * [ ] Wireframes
-* [ ] User stories
+* [x] User stories
