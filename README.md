@@ -14,6 +14,6 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 
 * [ ] Description 
 * [x] Intended users
-* [ ] ERDs
+* [x] ERDs
 * [ ] Wireframes
 * [x] User stories
