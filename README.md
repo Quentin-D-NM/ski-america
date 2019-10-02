@@ -9,6 +9,8 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 
 [User stories](docs/user-stories.md)
 
+[Entity Relationship Diagram](docs/erd.md)
+
 
 ## First Milestone
 
