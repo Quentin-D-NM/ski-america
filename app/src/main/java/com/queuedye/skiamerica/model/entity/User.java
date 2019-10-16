@@ -1,8 +1,10 @@
 package com.queuedye.skiamerica.model.entity;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+@Entity(tableName = "ski_america_user")
 public class User {
 
   @PrimaryKey(autoGenerate = true)
