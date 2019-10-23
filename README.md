@@ -25,6 +25,12 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 
 ### [DDL](docs/ddl.md)
 
+## [Entity Classes](docs/entity-classes.md)
+
+## [DAOs](docs/daos.md)
+
+## [Database Class](https://github.com/Quentin-D-NM/ski-america/blob/master/app/src/main/java/com/queuedye/skiamerica/model/service/SkiAmericaDatabase.java)
+
 ## Second Milestone
 
 + [x] Description
