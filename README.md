@@ -27,14 +27,15 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 
 ## Second Milestone
 
-+ [ ] Description
-+ [ ] Intended users
++ [x] Description
++ [x] Intended users
 + [ ] ERDs
-+ [ ] Wireframes
 + [ ] User stories
-+ [ ] Entity classes
++ [x] Entity classes
 + [ ] DAOs
-+ [ ] DDL
++ [ ] Database Class
++ [x] DDL
++ [ ] Inspect data model with chrome
 
 ## First Milestone
 
