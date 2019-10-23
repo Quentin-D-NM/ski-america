@@ -3,17 +3,25 @@
 ```sql 
 CREATE TABLE IF NOT EXISTS `SkiResort`
 (
-    `ski_resort_id`   INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    `ski_resort_name` TEXT,
-    `temp`            REAL                              NOT NULL,
-    `wind_dir`        INTEGER                           NOT NULL,
-    `wind_spd`        INTEGER                           NOT NULL,
-    `cloud_cover`     INTEGER                           NOT NULL,
-    `vis`             INTEGER                           NOT NULL,
-    `rel_humid`       INTEGER                           NOT NULL
-);
+    `ski_resort_id`      INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    `user_id`            INTEGER                           NOT NULL,
+    `ski_resort_name`    TEXT,
+    `favorite`           INTEGER                           NOT NULL,
+    `seven_day_forecast` TEXT,
+    `temp`               REAL                              NOT NULL,
+    `wind_dir`           INTEGER                           NOT NULL,
+    `wind_spd`           INTEGER                           NOT NULL,
+    `cloud_cover`        INTEGER                           NOT NULL,
+    `vis`                INTEGER                           NOT NULL,
+    `rel_humid`          INTEGER                           NOT NULL,
+    FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE
+)
+
+CREATE INDEX `index_SkiResort_user_id` ON `SkiResort` (`user_id`);
 
 CREATE INDEX `index_SkiResort_ski_resort_name` ON `SkiResort` (`ski_resort_name`);
+
+CREATE INDEX `index_SkiResort_seven_day_forecast` ON `SkiResort` (`seven_day_forecast`);
 
 CREATE INDEX `index_SkiResort_temp` ON `SkiResort` (`temp`);
 

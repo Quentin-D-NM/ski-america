@@ -4,19 +4,15 @@ import android.app.Application;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverter;
-import androidx.room.TypeConverters;
 import com.queuedye.skiamerica.model.dao.SkiResortDao;
 import com.queuedye.skiamerica.model.dao.UserDao;
 import com.queuedye.skiamerica.model.entity.SkiResort;
 import com.queuedye.skiamerica.model.entity.User;
-import java.util.Date;
 
 @Database(
     entities = {SkiResort.class, User.class},
     version = 1, exportSchema = true
 )
-//@TypeConverters(SkiAmericaDatabase.Converters.class)
 public abstract class SkiAmericaDatabase extends RoomDatabase {
 
   protected SkiAmericaDatabase() {
@@ -35,10 +31,6 @@ public abstract class SkiAmericaDatabase extends RoomDatabase {
   public abstract SkiResortDao getSkiResortDao();
 
   public abstract UserDao getUserDao();
-//
-//    public abstract RoundDao getRoundDao();
-//
-//    public abstract HandDao getHandDao();
 
   private static class InstanceHolder {
 
@@ -51,8 +43,5 @@ public abstract class SkiAmericaDatabase extends RoomDatabase {
     }
 
   }
-
-//  public static class Converters {
-//  }
 
 }

@@ -1,5 +1,6 @@
 package com.queuedye.skiamerica.model.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -20,6 +21,9 @@ public class SkiResort {
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "ski_resort_id")
   private long id;
+
+  @ColumnInfo(name = "user_id", index = true)
+  private long userId;
 
   @ColumnInfo(name = "ski_resort_name", index = true)
   private String name;
@@ -128,5 +132,13 @@ public class SkiResort {
 
   public void setRelHumid(int relHumid) {
     this.relHumid = relHumid;
+  }
+
+  public long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(long userId) {
+    this.userId = userId;
   }
 }

@@ -16,9 +16,9 @@ public interface SkiResortDao {
 
   @Query("SELECT * FROM SkiResort WHERE ski_resort_id =:skiResortId ORDER BY ski_resort_id ASC")
   SkiResort getById(long skiResortId);
-
-//  @Query("SELECT * FROM User WHERE ski_resort")
-//  List<SkiResort> getByFavorites();
+//
+//  @Query("SELECT * FROM User WHERE ski_resort =:bool")
+//  List<SkiResort> getByFavorites(boolean bool);
 
   @Delete
   int delete(SkiResort... skiResorts);
