@@ -5,16 +5,16 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(
-    foreignKeys = {
-        @ForeignKey(
-          entity = User.class,
-          childColumns = "user_id",
-          parentColumns = "user_id",
-          onDelete = ForeignKey.CASCADE
-        )
-    }
-)
+@Entity//(
+//    foreignKeys = {
+//        @ForeignKey(
+//          entity = User.class,
+//          childColumns = "user_id",
+//          parentColumns = "user_id",
+//          onDelete = ForeignKey.CASCADE
+//        )
+//    }
+//)
 public class SkiResort {
 
   @PrimaryKey(autoGenerate = true)
@@ -24,8 +24,11 @@ public class SkiResort {
   @ColumnInfo(name = "ski_resort_name", index = true)
   private String name;
 
-  @ColumnInfo(name = "seven_day_forecast", index = true)
-  private int[] sevenDayForecast;
+//  @ColumnInfo(name = "favorite")
+//  private boolean favorite;
+
+//  @ColumnInfo(name = "seven_day_forecast", index = true)
+//  private int[] sevenDayForecast;
 
   @ColumnInfo(name = "temp", index = true)
   private float temp;
@@ -61,13 +64,23 @@ public class SkiResort {
     this.name = name;
   }
 
-  public int[] getSevenDayForecast() {
-    return sevenDayForecast;
-  }
 
-  public void setSevenDayForecast(int[] sevenDayForecast) {
-    this.sevenDayForecast = sevenDayForecast;
-  }
+//  public boolean isFavorite() {
+//    return favorite;
+//  }
+//
+//  public void setFavorite(boolean favorite) {
+//    this.favorite = favorite;
+//  }
+
+
+//  public int[] getSevenDayForecast() {
+//    return sevenDayForecast;
+//  }
+//
+//  public void setSevenDayForecast(int[] sevenDayForecast) {
+//    this.sevenDayForecast = sevenDayForecast;
+//  }
 
   public float getTemp() {
     return temp;

@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "ski_america_user")
+@Entity
 public class User {
 
   @PrimaryKey(autoGenerate = true)
@@ -15,7 +15,7 @@ public class User {
   private String name;
 
   @ColumnInfo(name = "ski_resort", index = true)
-  private SkiResort favorites;
+  private long favorites;
 
   @ColumnInfo(name = "postal_code", index = true)
   private int postalCode;
@@ -36,11 +36,11 @@ public class User {
     this.name = name;
   }
 
-  public SkiResort getFavorites() {
+  public long getFavorites() {
     return favorites;
   }
 
-  public void setFavorites(SkiResort favorites) {
+  public void setFavorites(long favorites) {
     this.favorites = favorites;
   }
 

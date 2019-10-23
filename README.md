@@ -23,6 +23,18 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 
 ### [Wireframe Diagram](docs/wireframe.md)
 
+### [DDL](docs/ddl.md)
+
+## Second Milestone
+
++ [ ] Description
++ [ ] Intended users
++ [ ] ERDs
++ [ ] Wireframes
++ [ ] User stories
++ [ ] Entity classes
++ [ ] DAOs
++ [ ] DDL
 
 ## First Milestone
 
@@ -31,3 +43,4 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 + [x] ERDs
 + [x] Wireframes
 + [x] User stories
+
