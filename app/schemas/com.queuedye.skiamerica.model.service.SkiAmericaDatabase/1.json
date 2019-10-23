@@ -1,0 +1,242 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "87dd1b01f91646f59e89a6010ace6097",
+    "entities": [
+      {
+        "tableName": "SkiResort",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ski_resort_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_id` INTEGER NOT NULL, `ski_resort_name` TEXT, `favorite` INTEGER NOT NULL, `seven_day_forecast` TEXT, `temp` REAL NOT NULL, `wind_dir` INTEGER NOT NULL, `wind_spd` INTEGER NOT NULL, `cloud_cover` INTEGER NOT NULL, `vis` INTEGER NOT NULL, `rel_humid` INTEGER NOT NULL, FOREIGN KEY(`user_id`) REFERENCES `User`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "ski_resort_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "ski_resort_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "favorite",
+            "columnName": "favorite",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sevenDayForecast",
+            "columnName": "seven_day_forecast",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "temp",
+            "columnName": "temp",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "windDir",
+            "columnName": "wind_dir",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "windSpd",
+            "columnName": "wind_spd",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cloudCover",
+            "columnName": "cloud_cover",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vis",
+            "columnName": "vis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "relHumid",
+            "columnName": "rel_humid",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ski_resort_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_SkiResort_user_id",
+            "unique": false,
+            "columnNames": [
+              "user_id"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_user_id` ON `${TABLE_NAME}` (`user_id`)"
+          },
+          {
+            "name": "index_SkiResort_ski_resort_name",
+            "unique": false,
+            "columnNames": [
+              "ski_resort_name"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_ski_resort_name` ON `${TABLE_NAME}` (`ski_resort_name`)"
+          },
+          {
+            "name": "index_SkiResort_seven_day_forecast",
+            "unique": false,
+            "columnNames": [
+              "seven_day_forecast"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_seven_day_forecast` ON `${TABLE_NAME}` (`seven_day_forecast`)"
+          },
+          {
+            "name": "index_SkiResort_temp",
+            "unique": false,
+            "columnNames": [
+              "temp"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_temp` ON `${TABLE_NAME}` (`temp`)"
+          },
+          {
+            "name": "index_SkiResort_wind_dir",
+            "unique": false,
+            "columnNames": [
+              "wind_dir"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_wind_dir` ON `${TABLE_NAME}` (`wind_dir`)"
+          },
+          {
+            "name": "index_SkiResort_wind_spd",
+            "unique": false,
+            "columnNames": [
+              "wind_spd"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_wind_spd` ON `${TABLE_NAME}` (`wind_spd`)"
+          },
+          {
+            "name": "index_SkiResort_cloud_cover",
+            "unique": false,
+            "columnNames": [
+              "cloud_cover"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_cloud_cover` ON `${TABLE_NAME}` (`cloud_cover`)"
+          },
+          {
+            "name": "index_SkiResort_vis",
+            "unique": false,
+            "columnNames": [
+              "vis"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_vis` ON `${TABLE_NAME}` (`vis`)"
+          },
+          {
+            "name": "index_SkiResort_rel_humid",
+            "unique": false,
+            "columnNames": [
+              "rel_humid"
+            ],
+            "createSql": "CREATE  INDEX `index_SkiResort_rel_humid` ON `${TABLE_NAME}` (`rel_humid`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "user_id"
+            ],
+            "referencedColumns": [
+              "user_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "User",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `ski_resort` INTEGER NOT NULL, `postal_code` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "username",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "favorites",
+            "columnName": "ski_resort",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postalCode",
+            "columnName": "postal_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "user_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_User_username",
+            "unique": false,
+            "columnNames": [
+              "username"
+            ],
+            "createSql": "CREATE  INDEX `index_User_username` ON `${TABLE_NAME}` (`username`)"
+          },
+          {
+            "name": "index_User_ski_resort",
+            "unique": false,
+            "columnNames": [
+              "ski_resort"
+            ],
+            "createSql": "CREATE  INDEX `index_User_ski_resort` ON `${TABLE_NAME}` (`ski_resort`)"
+          },
+          {
+            "name": "index_User_postal_code",
+            "unique": false,
+            "columnNames": [
+              "postal_code"
+            ],
+            "createSql": "CREATE  INDEX `index_User_postal_code` ON `${TABLE_NAME}` (`postal_code`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '87dd1b01f91646f59e89a6010ace6097')"
+    ]
+  }
+}
