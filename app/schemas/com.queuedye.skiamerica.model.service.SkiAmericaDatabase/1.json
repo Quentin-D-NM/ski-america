@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "87dd1b01f91646f59e89a6010ace6097",
+    "identityHash": "97774fd5c5f4ffb296a666e89f685bba",
     "entities": [
       {
         "tableName": "SkiResort",
@@ -88,7 +88,7 @@
             "columnNames": [
               "user_id"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_user_id` ON `${TABLE_NAME}` (`user_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_user_id` ON `${TABLE_NAME}` (`user_id`)"
           },
           {
             "name": "index_SkiResort_ski_resort_name",
@@ -96,7 +96,7 @@
             "columnNames": [
               "ski_resort_name"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_ski_resort_name` ON `${TABLE_NAME}` (`ski_resort_name`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_ski_resort_name` ON `${TABLE_NAME}` (`ski_resort_name`)"
           },
           {
             "name": "index_SkiResort_seven_day_forecast",
@@ -104,7 +104,7 @@
             "columnNames": [
               "seven_day_forecast"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_seven_day_forecast` ON `${TABLE_NAME}` (`seven_day_forecast`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_seven_day_forecast` ON `${TABLE_NAME}` (`seven_day_forecast`)"
           },
           {
             "name": "index_SkiResort_temp",
@@ -112,7 +112,7 @@
             "columnNames": [
               "temp"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_temp` ON `${TABLE_NAME}` (`temp`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_temp` ON `${TABLE_NAME}` (`temp`)"
           },
           {
             "name": "index_SkiResort_wind_dir",
@@ -120,7 +120,7 @@
             "columnNames": [
               "wind_dir"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_wind_dir` ON `${TABLE_NAME}` (`wind_dir`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_wind_dir` ON `${TABLE_NAME}` (`wind_dir`)"
           },
           {
             "name": "index_SkiResort_wind_spd",
@@ -128,7 +128,7 @@
             "columnNames": [
               "wind_spd"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_wind_spd` ON `${TABLE_NAME}` (`wind_spd`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_wind_spd` ON `${TABLE_NAME}` (`wind_spd`)"
           },
           {
             "name": "index_SkiResort_cloud_cover",
@@ -136,7 +136,7 @@
             "columnNames": [
               "cloud_cover"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_cloud_cover` ON `${TABLE_NAME}` (`cloud_cover`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_cloud_cover` ON `${TABLE_NAME}` (`cloud_cover`)"
           },
           {
             "name": "index_SkiResort_vis",
@@ -144,7 +144,7 @@
             "columnNames": [
               "vis"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_vis` ON `${TABLE_NAME}` (`vis`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_vis` ON `${TABLE_NAME}` (`vis`)"
           },
           {
             "name": "index_SkiResort_rel_humid",
@@ -152,7 +152,7 @@
             "columnNames": [
               "rel_humid"
             ],
-            "createSql": "CREATE  INDEX `index_SkiResort_rel_humid` ON `${TABLE_NAME}` (`rel_humid`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_SkiResort_rel_humid` ON `${TABLE_NAME}` (`rel_humid`)"
           }
         ],
         "foreignKeys": [
@@ -171,13 +171,19 @@
       },
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `ski_resort` INTEGER NOT NULL, `postal_code` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `oauth_key` TEXT, `username` TEXT, `ski_resort` INTEGER NOT NULL, `postal_code` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "user_id",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "oAuthKey",
+            "columnName": "oauth_key",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "name",
@@ -206,12 +212,20 @@
         },
         "indices": [
           {
+            "name": "index_User_oauth_key",
+            "unique": true,
+            "columnNames": [
+              "oauth_key"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_User_oauth_key` ON `${TABLE_NAME}` (`oauth_key`)"
+          },
+          {
             "name": "index_User_username",
             "unique": false,
             "columnNames": [
               "username"
             ],
-            "createSql": "CREATE  INDEX `index_User_username` ON `${TABLE_NAME}` (`username`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_User_username` ON `${TABLE_NAME}` (`username`)"
           },
           {
             "name": "index_User_ski_resort",
@@ -219,7 +233,7 @@
             "columnNames": [
               "ski_resort"
             ],
-            "createSql": "CREATE  INDEX `index_User_ski_resort` ON `${TABLE_NAME}` (`ski_resort`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_User_ski_resort` ON `${TABLE_NAME}` (`ski_resort`)"
           },
           {
             "name": "index_User_postal_code",
@@ -227,7 +241,7 @@
             "columnNames": [
               "postal_code"
             ],
-            "createSql": "CREATE  INDEX `index_User_postal_code` ON `${TABLE_NAME}` (`postal_code`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_User_postal_code` ON `${TABLE_NAME}` (`postal_code`)"
           }
         ],
         "foreignKeys": []
@@ -236,7 +250,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '87dd1b01f91646f59e89a6010ace6097')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '97774fd5c5f4ffb296a666e89f685bba')"
     ]
   }
 }

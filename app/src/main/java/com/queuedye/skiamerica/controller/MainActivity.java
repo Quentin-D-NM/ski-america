@@ -3,17 +3,19 @@ package com.queuedye.skiamerica.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.queuedye.skiamerica.R;
 import com.queuedye.skiamerica.model.service.GoogleSignInService;
 
 public class MainActivity extends AppCompatActivity {
 
   private TextView mTextMessage;
+  private ArrayAdapter<String> adapter;
 
   private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
       = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -24,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         case R.id.navigation_home:
           mTextMessage.setText(R.string.title_home);
           return true;
-        case R.id.navigation_dashboard:
-          mTextMessage.setText(R.string.title_dashboard);
+        case R.id.navigation_settings:
+          mTextMessage.setText(R.string.title_settings);
           return true;
-        case R.id.navigation_notifications:
-          mTextMessage.setText(R.string.title_notifications);
+        case R.id.navigation_search:
+          mTextMessage.setText(R.string.title_search);
           return true;
       }
       return false;

@@ -9,25 +9,15 @@
   tools:context=".controller.MainActivity">
 
 
-  <!--  <TextView-->
-  <!--    android:id="@+id/message"-->
-  <!--    android:layout_width="wrap_content"-->
-  <!--    android:layout_height="wrap_content"-->
-  <!--    android:layout_marginTop="@dimen/activity_vertical_margin"-->
-  <!--    android:layout_marginStart="@dimen/activity_horizontal_margin"-->
-  <!--    android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
-  <!--    android:text="@string/title_home"-->
-  <!--    app:layout_constraintLeft_toLeftOf="parent"-->
-  <!--    app:layout_constraintTop_toTopOf="parent"/>-->
-
-  <ListView
-    android:id="@+id/ski_resort_list"
+  <fragment
+    android:id="@+id/fragment_main"
     android:layout_width="0dp"
     android:layout_height="0dp"
+    android:name="com.queuedye.skiamerica.controller.MainFragment"
     app:layout_constraintTop_toTopOf="@id/container"
     app:layout_constraintBottom_toTopOf="@id/navigation"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"/>
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"/>
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/navigation"

@@ -2,14 +2,20 @@ package com.queuedye.skiamerica.model.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(
+    indices = @Index(value = "oauth_key", unique = true)
+)
 public class User {
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "user_id")
   private long id;
+
+  @ColumnInfo(name = "oauth_key")
+  private String oAuthKey;
 
   @ColumnInfo(name = "username", index = true)
   private String name;
@@ -50,5 +56,13 @@ public class User {
 
   public void setPostalCode(int postalCode) {
     this.postalCode = postalCode;
+  }
+
+  public String getOAuthKey() {
+    return oAuthKey;
+  }
+
+  public void setOAuthKey(String oAuthKey) {
+    this.oAuthKey = oAuthKey;
   }
 }
