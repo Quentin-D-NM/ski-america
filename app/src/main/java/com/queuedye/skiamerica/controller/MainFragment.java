@@ -14,7 +14,6 @@ public class MainFragment extends Fragment {
 
   private ListView listView;
 
-
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

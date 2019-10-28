@@ -25,13 +25,13 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 
 ### [DDL](docs/ddl.md)
 
-## [Entity Classes](docs/entity-classes.md)
+### [Entity Classes](docs/entity-classes.md)
 
-## [DAOs](docs/daos.md)
+### [DAOs](docs/daos.md)
 
-## [Database Class](https://github.com/Quentin-D-NM/ski-america/blob/master/app/src/main/java/com/queuedye/skiamerica/model/service/SkiAmericaDatabase.java)
+### [Database Class](https://github.com/Quentin-D-NM/ski-america/blob/master/app/src/main/java/com/queuedye/skiamerica/model/service/SkiAmericaDatabase.java)
 
-## Second Milestone
+### Second Milestone(Oct 28th 2019)
 
 + [x] Description
 + [x] Intended users
@@ -43,7 +43,7 @@ Skier, Snowboarders, and Resort employees looking for weather information on a p
 + [x] DDL
 + [x] Inspect data model with chrome
 
-## First Milestone
+## First Milestone(Oct 2nd 2019)
 
 + [x] Description 
 + [x] Intended users
