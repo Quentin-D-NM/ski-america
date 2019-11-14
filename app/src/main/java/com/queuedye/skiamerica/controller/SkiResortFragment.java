@@ -40,8 +40,20 @@ public class SkiResortFragment extends DialogFragment {
         .setNegativeButton("Cancel", (dialog, button) -> {
         })
         .setPositiveButton("Ok", (dialog, button) -> {
-
+          populateSkiResort();
         })
         .create();
+  }
+
+  private void populateSkiResort() {
+    skiResort.setAddress(skiResortAddress.getText().toString().trim());
+    skiResort.setName(skiResortName.getText().toString().trim());
+    ((OnCompleteListener) getActivity()).updateSkiResort(skiResort);
+  }
+
+  @FunctionalInterface
+  public interface OnCompleteListener {
+
+    void updateSkiResort(SkiResort skiResort);
   }
 }

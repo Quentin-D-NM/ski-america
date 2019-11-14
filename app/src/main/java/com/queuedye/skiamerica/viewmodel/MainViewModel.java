@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.queuedye.skiamerica.model.dao.SkiResortDao;
 import com.queuedye.skiamerica.model.entity.SkiResort;
 import com.queuedye.skiamerica.model.entity.User;
@@ -21,11 +22,11 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   private SkiAmericaDatabase database;
   private Executor executor;
   private CompositeDisposable pending = new CompositeDisposable();
-
   private User user;
 
   private MutableLiveData<Long> skiResortId;
   private LiveData<SkiResort> skiResort;
+  private MutableLiveData<GoogleSignInAccount> account;
 
   private SkiResortDao skiResortDao;
 
@@ -39,6 +40,10 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   public LiveData<SkiResort> getskiResort() {return skiResort;}
+
+  public void setAccount(GoogleSignInAccount account) {
+    this.account.setValue(account);
+  }
 
   public void addressToCoordinates(String user) {
     pending.add(
