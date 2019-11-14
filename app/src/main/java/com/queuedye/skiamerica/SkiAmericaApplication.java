@@ -2,8 +2,8 @@ package com.queuedye.skiamerica;
 
 import android.app.Application;
 import com.facebook.stetho.Stetho;
-import com.queuedye.skiamerica.model.service.GoogleSignInService;
-import com.queuedye.skiamerica.model.service.SkiAmericaDatabase;
+import com.queuedye.skiamerica.service.GoogleSignInService;
+import com.queuedye.skiamerica.service.SkiAmericaDatabase;
 
 public class SkiAmericaApplication extends Application {
 

@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import java.io.Serializable;
 
 @Entity(
     foreignKeys = {
@@ -16,7 +17,7 @@ import androidx.room.PrimaryKey;
         )
     }
 )
-public class SkiResort {
+public class SkiResort implements Serializable {
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "ski_resort_id")
@@ -51,6 +52,39 @@ public class SkiResort {
 
   @ColumnInfo(name = "rel_humid", index = true)
   private int relHumid;
+
+  @ColumnInfo(name = "address", index = true)
+  private String address;
+
+  @ColumnInfo(name = "lat")
+  private double latitude;
+
+  @ColumnInfo(name = "lng")
+  private double longitude;
+
+  public double getLatitude() {
+    return latitude;
+  }
+
+  public void setLatitude(double latitude) {
+    this.latitude = latitude;
+  }
+
+  public double getLongitude() {
+    return longitude;
+  }
+
+  public void setLongitude(double longitude) {
+    this.longitude = longitude;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
   public long getId() {
     return id;

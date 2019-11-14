@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `SkiResort`
     `cloud_cover`        INTEGER                           NOT NULL,
     `vis`                INTEGER                           NOT NULL,
     `rel_humid`          INTEGER                           NOT NULL,
+    'address'            TEXT,
     FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE
 );
 
@@ -31,6 +32,8 @@ CREATE INDEX `index_SkiResort_cloud_cover` ON `SkiResort` (`cloud_cover`);
 CREATE INDEX `index_SkiResort_vis` ON `SkiResort` (`vis`);
 
 CREATE INDEX `index_SkiResort_rel_humid` ON `SkiResort` (`rel_humid`);
+
+CREATE INDEX IF NOT EXISTS `index_SkiResort_address` ON `SkiResort` (`address`);
 
 CREATE TABLE IF NOT EXISTS `User`
 (

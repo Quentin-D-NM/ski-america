@@ -5,46 +5,35 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProviders;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.queuedye.skiamerica.R;
-import com.queuedye.skiamerica.model.service.GoogleSignInService;
+import com.queuedye.skiamerica.model.entity.SkiResort;
+import com.queuedye.skiamerica.service.GoogleSignInService;
+import com.queuedye.skiamerica.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
   private TextView mTextMessage;
   private ArrayAdapter<String> adapter;
+  private ProgressBar waiting;
+  private MainViewModel viewModel;
 
-  private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-      = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-      switch (item.getItemId()) {
-        case R.id.navigation_home:
-          mTextMessage.setText(R.string.title_home);
-          return true;
-        case R.id.navigation_settings:
-          mTextMessage.setText(R.string.title_settings);
-          return true;
-        case R.id.navigation_search:
-          mTextMessage.setText(R.string.title_search);
-          return true;
-      }
-      return false;
-    }
-  };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    setupUI();
+    setupViewModel();
 
     mTextMessage = (TextView) findViewById(R.id.message);
-    BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
   }
 
   @Override
@@ -73,5 +62,22 @@ public class MainActivity extends AppCompatActivity {
           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
           startActivity(intent);
         });
+  }
+
+  private void setupViewModel() {
+    viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+    getLifecycle().addObserver(viewModel);
+    viewModel.getskiResort().observe(this, skiResort -> {});
+  }
+
+  public void setupUI() {
+    setContentView(R.layout.activity_main);
+    FloatingActionButton fab = findViewById(R.id.fab);
+    fab.setOnClickListener(view -> addSkiResort(null));
+  }
+
+  private void addSkiResort(SkiResort skiResort) {
+    SkiResortFragment fragment = SkiResortFragment.newInstance(skiResort);
+    fragment.show(getSupportFragmentManager(), fragment.getClass().getSimpleName());
   }
 }

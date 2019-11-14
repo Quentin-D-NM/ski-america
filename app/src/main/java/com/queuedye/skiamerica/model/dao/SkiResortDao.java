@@ -12,7 +12,10 @@ import java.util.List;
 public interface SkiResortDao {
 
   @Insert
-  List<Long> insert(Collection<SkiResort> skiResorts);
+  long insert(SkiResort skiResortId);
+
+  @Insert
+  List<Long> insert(Collection<SkiResort> skiResortIds);
 
   @Query("SELECT * FROM SkiResort WHERE ski_resort_id =:skiResortId ORDER BY ski_resort_id ASC")
   SkiResort getById(long skiResortId);

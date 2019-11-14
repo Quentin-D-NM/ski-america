@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.queuedye.skiamerica.R;
-import com.queuedye.skiamerica.model.service.GoogleSignInService;
+import com.queuedye.skiamerica.service.GoogleSignInService;
 
 public class LoginActivity extends AppCompatActivity {
 

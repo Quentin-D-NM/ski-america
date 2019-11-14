@@ -7,4 +7,6 @@
   <string name="title_activity_main">Ski America</string>
   <string name="login_failure_message">Unable to Login In with provided credentials.</string>
   <string name="sign_out">Sign out</string>
+  <string name="ski_resort_name">Ski Resort Name</string>
+  <string name="ski_resort_address">Ski Resort Address</string>
 </resources>

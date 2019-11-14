@@ -9,6 +9,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL_GEO_CODER", '"https://maps.googleapis.com/maps/api/geocode/json"'
+        buildConfigField "String", "BASE_URL_SKI_WEATHER", '"http://api.worldweatheronline.com/premium/v1/ski.ashx?"'
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]

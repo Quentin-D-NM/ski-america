@@ -1,4 +1,4 @@
-package com.queuedye.skiamerica.model.service;
+package com.queuedye.skiamerica.service;
 
 import android.app.Activity;
 import android.app.Application;
