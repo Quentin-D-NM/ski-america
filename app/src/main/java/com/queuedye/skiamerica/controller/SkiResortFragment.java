@@ -46,14 +46,17 @@ public class SkiResortFragment extends DialogFragment {
   }
 
   private void populateSkiResort() {
-    skiResort.setAddress(skiResortAddress.getText().toString().trim());
-    skiResort.setName(skiResortName.getText().toString().trim());
-    ((OnCompleteListener) getActivity()).updateSkiResort(skiResort);
+    if (skiResort == null) {
+      skiResort = new SkiResort();
+      skiResort.setAddress(skiResortAddress.getText().toString().trim());
+      skiResort.setName(skiResortName.getText().toString().trim());
+    }
+    ((OnCompleteListener) getActivity()).addNewSkiResort(skiResort);
   }
 
   @FunctionalInterface
   public interface OnCompleteListener {
 
-    void updateSkiResort(SkiResort skiResort);
+    void addNewSkiResort(SkiResort skiResort);
   }
 }

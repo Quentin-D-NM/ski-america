@@ -1,5 +1,17 @@
 apply plugin: 'com.android.application'
 
+def getServicePropertyGeo(String property) {
+    Properties properties = new Properties();
+    properties.load(new FileInputStream("../../services/geocode.properties"));
+    return String.format("\"%s\"" , properties.getProperty(property));
+}
+
+def getServicePropertyWeather(String property) {
+    Properties properties = new Properties();
+    properties.load(new FileInputStream("../../services/skiweather.properties"));
+    return String.format("\"%s\"" , properties.getProperty(property));
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -9,8 +21,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "BASE_URL_GEO_CODER", '"https://maps.googleapis.com/maps/api/geocode/json"'
-        buildConfigField "String", "BASE_URL_SKI_WEATHER", '"http://api.worldweatheronline.com/premium/v1/ski.ashx?"'
+        buildConfigField "String", "BASE_URL_GEO_CODER", '"https://maps.googleapis.com/maps/api/geocode/"'
+        buildConfigField "String", "BASE_URL_SKI_WEATHER", '"http://api.worldweatheronline.com/premium/v1/"'
+        buildConfigField "String", "API_KEY_GEO_CODING", getServicePropertyGeo("api_key")
+        buildConfigField "String", "API_KEY_SKI_WEATHER", getServicePropertyWeather("api_key")
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]

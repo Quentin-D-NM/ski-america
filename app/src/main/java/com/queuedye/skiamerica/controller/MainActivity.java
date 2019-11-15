@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements OnCompleteListene
     super.onCreate(savedInstanceState);
     setupUI();
     setupViewModel();
+    setupSignIn();
     //mTextMessage = (TextView) findViewById(R.id.message);
   }
 
@@ -84,8 +85,8 @@ public class MainActivity extends AppCompatActivity implements OnCompleteListene
   }
 
   @Override
-  public void updateSkiResort(SkiResort skiResort) {
-
+  public void addNewSkiResort(SkiResort skiResort) {
+    viewModel.addSkiResort(skiResort);
   }
 
   private void refreshSignIn(Runnable runnable) {

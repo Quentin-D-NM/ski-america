@@ -19,8 +19,8 @@ public interface WeatherOnlineService {
     return InstanceHolder.INSTANCE;
   }
 
-  @GET()
-  Single<SkiResort> getWeather(@Query("q") double latLng);
+  @GET("ski.ashx/")
+  Single<SkiResort> getWeather(@Query("q") String latLng, @Query("num_of_days") int numOfDays, @Query("key") String key);
 
   class InstanceHolder {
 
