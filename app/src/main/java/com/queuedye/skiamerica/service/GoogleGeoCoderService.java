@@ -1,8 +1,8 @@
 package com.queuedye.skiamerica.service;
 
 import com.queuedye.skiamerica.BuildConfig;
-import com.queuedye.skiamerica.model.entity.SkiResort;
-import com.queuedye.skiamerica.model.pojo.Coordinates;
+import com.queuedye.skiamerica.model.pojo.GeoLocationResponse;
+import com.queuedye.skiamerica.model.pojo.Geometry;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -19,8 +19,8 @@ public interface GoogleGeoCoderService {
     return InstanceHolder.INSTANCE;
   }
 
-  @GET("json/")
-  Single<Coordinates> getCoordinates(@Query("address") String address, @Query("key") String key);
+  @GET("json")
+  Single<GeoLocationResponse> getCoordinates(@Query("address") String address, @Query("key") String key);
 
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   class InstanceHolder {
@@ -41,7 +41,5 @@ public interface GoogleGeoCoderService {
           .build();
       INSTANCE = retrofit.create(GoogleGeoCoderService.class);
     }
-
   }
-
 }

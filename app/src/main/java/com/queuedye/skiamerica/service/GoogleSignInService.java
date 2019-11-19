@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.queuedye.skiamerica.model.entity.User;
 
 public class GoogleSignInService {
 
@@ -25,7 +26,7 @@ public class GoogleSignInService {
         .requestEmail()
         .requestId()
         .requestProfile()
-        // .requestIdToken(...)
+        //.requestIdToken()
         .build();
     client = GoogleSignIn.getClient(applicationContext, options);
   }

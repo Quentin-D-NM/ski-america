@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements OnCompleteListene
     setupUI();
     setupViewModel();
     setupSignIn();
-    //mTextMessage = (TextView) findViewById(R.id.message);
   }
 
   @Override

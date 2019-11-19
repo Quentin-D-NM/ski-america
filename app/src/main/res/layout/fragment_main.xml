@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/fragment_main"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <ListView
-    android:id="@+id/ski_resort_list"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:divider="@color/colorPrimaryDark"
-    android:dividerHeight="@dimen/divider_height"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+    android:id="@+id/ski_resort_name_adapter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:textSize="20sp"
+    android:textStyle="bold"/>
+
+  <TextView
+    android:id="@+id/textView_release"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/textView_name"
+    android:layout_margin="20dp"
+    android:textSize="20sp"/>
+
+</RelativeLayout>

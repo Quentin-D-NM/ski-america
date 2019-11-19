@@ -11,12 +11,21 @@ import androidx.fragment.app.DialogFragment;
 import com.queuedye.skiamerica.R;
 import com.queuedye.skiamerica.model.entity.SkiResort;
 
+/**
+ * Simple Dialog fragment to allow the user to insert Ski Resort Info
+ */
+
 public class SkiResortFragment extends DialogFragment {
 
   private EditText skiResortName;
   private EditText skiResortAddress;
   private SkiResort skiResort;
 
+  /**
+   *
+   * @param skiResort
+   * @return SkiResortFragment Instance
+   */
   public static SkiResortFragment newInstance(SkiResort skiResort) {
     SkiResortFragment fragment = new SkiResortFragment();
     Bundle args = new Bundle();

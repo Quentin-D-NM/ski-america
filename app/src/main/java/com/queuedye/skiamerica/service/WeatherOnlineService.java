@@ -1,8 +1,7 @@
 package com.queuedye.skiamerica.service;
 
 import com.queuedye.skiamerica.BuildConfig;
-import com.queuedye.skiamerica.model.entity.SkiResort;
-import com.queuedye.skiamerica.service.GoogleGeoCoderService.InstanceHolder;
+import com.queuedye.skiamerica.model.pojo.WeatherResponse;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -19,8 +18,9 @@ public interface WeatherOnlineService {
     return InstanceHolder.INSTANCE;
   }
 
-  @GET("ski.ashx/")
-  Single<SkiResort> getWeather(@Query("q") String latLng, @Query("num_of_days") int numOfDays, @Query("key") String key);
+  @GET("ski.ashx")
+  Single<WeatherResponse> getWeather(@Query("key") String key, @Query("q") String latLng,
+      @Query("num_of_days") int numOfDays, @Query("format") String format);
 
   class InstanceHolder {
 

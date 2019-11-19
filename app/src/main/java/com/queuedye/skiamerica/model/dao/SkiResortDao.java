@@ -12,7 +12,7 @@ import java.util.List;
 public interface SkiResortDao {
 
   @Insert
-  long insert(SkiResort skiResortId);
+  long insert(SkiResort skiResort);
 
   @Insert
   List<Long> insert(Collection<SkiResort> skiResortIds);

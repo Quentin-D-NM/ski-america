@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 @Entity(
@@ -32,26 +33,35 @@ public class SkiResort implements Serializable {
   @ColumnInfo(name = "favorite")
   private boolean favorite;
 
-  @ColumnInfo(name = "seven_day_forecast", index = true)
-  private String sevenDayForecast;
+//  @ColumnInfo(name = "seven_day_forecast", index = true)
+//  private String sevenDayForecast;
 
-  @ColumnInfo(name = "temp", index = true)
-  private float temp;
+  @ColumnInfo(name = "max_temp", index = true)
+  private float maxTemp;
 
-  @ColumnInfo(name = "wind_dir", index = true)
-  private int windDir;
+  @ColumnInfo(name = "min_temp", index = true)
+  private float minTemp;
 
-  @ColumnInfo(name = "wind_spd", index = true)
-  private int windSpd;
+  @ColumnInfo(name = "chance_of_snow")
+  private int chanceOfSnow;
 
-  @ColumnInfo(name = "cloud_cover", index = true)
-  private int cloudCover;
+  @ColumnInfo(name = "total_snow_fall_cm", index = true)
+  private float totalSnowFallCm;
 
-  @ColumnInfo(name = "vis", index = true)
-  private int vis;
-
-  @ColumnInfo(name = "rel_humid", index = true)
-  private int relHumid;
+//  @ColumnInfo(name = "wind_dir", index = true)
+//  private int windDir;
+//
+//  @ColumnInfo(name = "wind_spd", index = true)
+//  private int windSpd;
+//
+//  @ColumnInfo(name = "cloud_cover", index = true)
+//  private int cloudCover;
+//
+//  @ColumnInfo(name = "vis", index = true)
+//  private int vis;
+//
+//  @ColumnInfo(name = "rel_humid", index = true)
+//  private int relHumid;
 
   @ColumnInfo(name = "address", index = true)
   private String address;
@@ -111,62 +121,78 @@ public class SkiResort implements Serializable {
     this.favorite = favorite;
   }
 
-
-  public String getSevenDayForecast() {
-    return sevenDayForecast;
+  public float getMaxTemp() {
+    return maxTemp;
   }
 
-  public void setSevenDayForecast(String sevenDayForecast) {
-    this.sevenDayForecast = sevenDayForecast;
+  public void setMaxTemp(float maxTemp) {
+    this.maxTemp = maxTemp;
   }
 
-  public float getTemp() {
-    return temp;
+  public float getMinTemp() {
+    return minTemp;
   }
 
-  public void setTemp(float temp) {
-    this.temp = temp;
+  public void setMinTemp(float minTemp) {
+    this.minTemp = minTemp;
   }
 
-  public int getWindDir() {
-    return windDir;
+  public int getChanceOfSnow() {
+    return chanceOfSnow;
   }
 
-  public void setWindDir(int windDir) {
-    this.windDir = windDir;
+  public void setChanceOfSnow(int chanceOfSnow) {
+    this.chanceOfSnow = chanceOfSnow;
   }
 
-  public int getWindSpd() {
-    return windSpd;
+  public float getTotalSnowFallCm() {
+    return totalSnowFallCm;
   }
 
-  public void setWindSpd(int windSpd) {
-    this.windSpd = windSpd;
+  public void setTotalSnowFallCm(float totalSnowFallCm) {
+    this.totalSnowFallCm = totalSnowFallCm;
   }
 
-  public int getCloudCover() {
-    return cloudCover;
-  }
+  //
+//  public int getWindDir() {
+//    return windDir;
+//  }
+//
+//  public void setWindDir(int windDir) {
+//    this.windDir = windDir;
+//  }
+//
+//  public int getWindSpd() {
+//    return windSpd;
+//  }
+//
+//  public void setWindSpd(int windSpd) {
+//    this.windSpd = windSpd;
+//  }
 
-  public void setCloudCover(int cloudCover) {
-    this.cloudCover = cloudCover;
-  }
-
-  public int getVis() {
-    return vis;
-  }
-
-  public void setVis(int vis) {
-    this.vis = vis;
-  }
-
-  public int getRelHumid() {
-    return relHumid;
-  }
-
-  public void setRelHumid(int relHumid) {
-    this.relHumid = relHumid;
-  }
+//  public int getCloudCover() {
+//    return cloudCover;
+//  }
+//
+//  public void setCloudCover(int cloudCover) {
+//    this.cloudCover = cloudCover;
+//  }
+//
+//  public int getVis() {
+//    return vis;
+//  }
+//
+//  public void setVis(int vis) {
+//    this.vis = vis;
+//  }
+//
+//  public int getRelHumid() {
+//    return relHumid;
+//  }
+//
+//  public void setRelHumid(int relHumid) {
+//    this.relHumid = relHumid;
+//  }
 
   public long getUserId() {
     return userId;

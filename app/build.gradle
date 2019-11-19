@@ -22,7 +22,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "BASE_URL_GEO_CODER", '"https://maps.googleapis.com/maps/api/geocode/"'
-        buildConfigField "String", "BASE_URL_SKI_WEATHER", '"http://api.worldweatheronline.com/premium/v1/"'
+        buildConfigField "String", "BASE_URL_SKI_WEATHER", '"https://api.worldweatheronline.com/premium/v1/"'
         buildConfigField "String", "API_KEY_GEO_CODING", getServicePropertyGeo("api_key")
         buildConfigField "String", "API_KEY_SKI_WEATHER", getServicePropertyWeather("api_key")
         javaCompileOptions {
