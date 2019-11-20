@@ -12,16 +12,30 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+/**
+ * Service class to call the Ski Weather API
+ */
 public interface WeatherOnlineService {
 
   static WeatherOnlineService getInstance() {
     return InstanceHolder.INSTANCE;
   }
 
+  /**
+   * Makes a request to the Weather Api and maps the response to a {@link WeatherResponse} object, then returns it
+   * @param key
+   * @param latLng
+   * @param numOfDays
+   * @param format
+   * @return {@link WeatherResponse}
+   */
   @GET("ski.ashx")
   Single<WeatherResponse> getWeather(@Query("key") String key, @Query("q") String latLng,
       @Query("num_of_days") int numOfDays, @Query("format") String format);
 
+  /**
+   * Simple instance holder class for the {@link WeatherOnlineService}
+   */
   class InstanceHolder {
 
     private static final WeatherOnlineService INSTANCE;

@@ -9,23 +9,39 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.queuedye.skiamerica.R;
 import com.queuedye.skiamerica.model.entity.SkiResort;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+/**
+ * Simple Adapter class to display {@link SkiResort} data
+ */
 public class SkiResortRecyclerAdapter extends RecyclerView.Adapter<SkiResortRecyclerAdapter.SkiResortHolder> {
 
   private ArrayList<SkiResort> skiResorts = new ArrayList<>();
 
+  /**
+   * Initialization of the skiResorts object held within
+   * @param skiResorts
+   */
   public SkiResortRecyclerAdapter(ArrayList<SkiResort> skiResorts) {
     this.skiResorts = skiResorts;
   }
 
+  /**
+   * Update the skiResorts List by clearing, adding the new data, and notifying a data set change
+   * @param skiResorts
+   */
   public void updateSkiResorts(List<SkiResort> skiResorts) {
     this.skiResorts.clear();
     this.skiResorts.addAll(skiResorts);
     notifyDataSetChanged();
   }
 
+  /**
+   * Inflates the list_item layout resource for each {@link SkiResort}
+   * @param parent
+   * @param viewType
+   * @return SkiResortHolder
+   */
   @NonNull
   @Override
   public SkiResortRecyclerAdapter.SkiResortHolder onCreateViewHolder(@NonNull ViewGroup parent,
@@ -34,6 +50,11 @@ public class SkiResortRecyclerAdapter extends RecyclerView.Adapter<SkiResortRecy
     return new SkiResortHolder(view);
   }
 
+  /**
+   * Sets the correct text for each element by retrieving them from the skiResort object
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull SkiResortRecyclerAdapter.SkiResortHolder holder,
       int position) {
@@ -53,11 +74,18 @@ public class SkiResortRecyclerAdapter extends RecyclerView.Adapter<SkiResortRecy
     totalSnowFall.setText(String.valueOf(skiResorts.get(position).getTotalSnowFallCm()));
   }
 
+  /**
+   * Get the number of Items in the skiResorts List
+   * @return Size of skiResorts
+   */
   @Override
   public int getItemCount() {
     return skiResorts.size();
   }
 
+  /**
+   * Simple holds a {@link View} object for the current list item
+   */
   public class SkiResortHolder extends RecyclerView.ViewHolder {
 
     public View itemView;

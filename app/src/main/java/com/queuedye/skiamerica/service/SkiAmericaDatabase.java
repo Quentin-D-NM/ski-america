@@ -24,12 +24,24 @@ public abstract class SkiAmericaDatabase extends RoomDatabase {
     SkiAmericaDatabase.applicationContext = applicationContext;
   }
 
+  /**
+   * Get a single instance of database
+   * @return SkiAmericaDatabase
+   */
   public static SkiAmericaDatabase getInstance() {
     return InstanceHolder.INSTANCE;
   }
 
+  /**
+   * Returns a Skiresort Data Access object
+   * @return {@link UserDao}
+   */
   public abstract SkiResortDao getSkiResortDao();
 
+  /**
+   * Returns a User Data Access object
+   * @return {@link UserDao}
+   */
   public abstract UserDao getUserDao();
 
   private static class InstanceHolder {

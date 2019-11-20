@@ -1,0 +1,8 @@
+com.queuedye.skiamerica
+com.queuedye.skiamerica.controller
+com.queuedye.skiamerica.model.dao
+com.queuedye.skiamerica.model.entity
+com.queuedye.skiamerica.model.pojo
+com.queuedye.skiamerica.service
+com.queuedye.skiamerica.view
+com.queuedye.skiamerica.viewmodel

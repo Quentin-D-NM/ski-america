@@ -29,7 +29,8 @@ public class MainFragment extends Fragment {
   private MainViewModel viewModel;
   private SkiResortRecyclerAdapter adapter = new SkiResortRecyclerAdapter(new ArrayList<>());
   private ArrayList<SkiResort> skiResorts = new ArrayList<>();
-  RecyclerView recyclerView;
+  private RecyclerView recyclerView;
+  private boolean hasDatabaseResorts = false;
 
 
   /**
@@ -37,7 +38,7 @@ public class MainFragment extends Fragment {
    * @param inflater
    * @param container
    * @param savedInstanceState
-   * @return
+   * @return {@link View}
    */
   @Nullable
   @Override
@@ -45,13 +46,6 @@ public class MainFragment extends Fragment {
       @Nullable Bundle savedInstanceState) {
     viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
     View view = inflater.inflate(R.layout.fragment_main, container, false);
-    observeViewModel();
-    return view;
-  }
-
-  @Override
-  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
     viewModel.getDatabaseResorts().observe(this, resorts -> {
       skiResorts.addAll(resorts);
       recyclerView = (RecyclerView) view.findViewById(R.id.ski_resort_list);
@@ -59,14 +53,30 @@ public class MainFragment extends Fragment {
       recyclerView.setAdapter(adapter);
       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     });
+    observeViewModel();
+    return view;
   }
 
+  /**
+   * Currently does not do anything
+   * @param view
+   * @param savedInstanceState
+   */
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    if (!hasDatabaseResorts) {
+    }
+  }
+
+  /**
+   * sets an observer to watch for any changes to the {@link SkiResort} {@link androidx.lifecycle.LiveData}
+   */
   private void observeViewModel() {
     viewModel.getSkiResort().observe(this, new Observer<SkiResort>() {
       @Override
       public void onChanged(SkiResort skiResort) {
-        if (skiResort != null && skiResort instanceof List) {
-          recyclerView.setVisibility(View.VISIBLE);
+        if (skiResort != null) {
           adapter.updateSkiResorts(skiResorts);
         }
       }

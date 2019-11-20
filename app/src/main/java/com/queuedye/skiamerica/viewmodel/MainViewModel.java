@@ -54,6 +54,10 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
     user = new MutableLiveData<>();
   }
 
+  /**
+   * Returns all of the SkiResort Objects saved to the data base
+   * @return {@link LiveData} of a {@link List} of a {@link SkiResort}
+   */
   public LiveData<List<SkiResort>> getDatabaseResorts() {
     return database.getSkiResortDao().getAll();
   }
@@ -86,7 +90,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   /**
-   * Adds a SkiResort to the database with the specified location by calling the two appropriate API's for data
+   * Adds a SkiResort to the database with the specified location by calling the two appropriate API's for data and notifies observers
    * @param skiResort
    */
   public void addSkiResort(SkiResort skiResort) {
@@ -111,8 +115,8 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
                 skiResort.setUserId(this.user.getValue().getId());
                 skiResort.setLatitude(location.getLatitude());
                 skiResort.setLongitude(location.getLongitude());
-                database.getSkiResortDao().insert(skiResort);
                 this.skiResort.postValue(skiResort);
+                database.getSkiResortDao().insert(skiResort);
               });
         })
     );

@@ -15,7 +15,6 @@ import com.queuedye.skiamerica.model.entity.SkiResort;
 /**
  * Simple Dialog fragment to allow the user to insert Ski Resort Info
  */
-
 public class SkiResortFragment extends DialogFragment {
 
   private EditText skiResortName;
@@ -23,7 +22,7 @@ public class SkiResortFragment extends DialogFragment {
   private SkiResort skiResort;
 
   /**
-   *
+   * Creates a new instance of SkiResortFragment
    * @param skiResort
    * @return SkiResortFragment Instance
    */
@@ -37,6 +36,11 @@ public class SkiResortFragment extends DialogFragment {
     return fragment;
   }
 
+  /**
+   * Setup and Creation of Dialog Fragment for taking inputs
+   * @param savedInstanceState
+   * @return {@link Dialog}
+   */
   @NonNull
   @Override
   public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -64,11 +68,20 @@ public class SkiResortFragment extends DialogFragment {
     ((OnCompleteListener) getActivity()).addNewSkiResort(skiResort);
   }
 
+  /**
+   * calls the super show method to make the Dialog visible
+   * @param transaction
+   * @param tag
+   * @return int
+   */
   @Override
   public int show(@NonNull FragmentTransaction transaction, @Nullable String tag) {
     return super.show(transaction, tag);
   }
 
+  /**
+   * On Completion of the entering of info you pass the object to the abstract addNewSkiResort
+   */
   @FunctionalInterface
   public interface OnCompleteListener {
 
