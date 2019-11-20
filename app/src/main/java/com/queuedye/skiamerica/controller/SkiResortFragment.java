@@ -8,6 +8,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentTransaction;
 import com.queuedye.skiamerica.R;
 import com.queuedye.skiamerica.model.entity.SkiResort;
 
@@ -61,6 +62,11 @@ public class SkiResortFragment extends DialogFragment {
       skiResort.setName(skiResortName.getText().toString().trim());
     }
     ((OnCompleteListener) getActivity()).addNewSkiResort(skiResort);
+  }
+
+  @Override
+  public int show(@NonNull FragmentTransaction transaction, @Nullable String tag) {
+    return super.show(transaction, tag);
   }
 
   @FunctionalInterface

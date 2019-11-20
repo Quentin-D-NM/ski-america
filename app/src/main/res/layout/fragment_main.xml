@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/fragment_main"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  tools:context=".controller.MainFragment">
 
-
-  <TextView
-    android:id="@+id/ski_resort_name_adapter"
-    android:layout_width="wrap_content"
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/ski_resort_list"
+    android:orientation="horizontal"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:textSize="20sp"
-    android:textStyle="bold"/>
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:context=".controller.MainFragment">
 
-  <TextView
-    android:id="@+id/textView_release"
-    android:layout_width="wrap_content"
+  </androidx.recyclerview.widget.RecyclerView>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab"
+    android:layout_width="370dp"
     android:layout_height="wrap_content"
-    android:layout_below="@id/textView_name"
-    android:layout_margin="20dp"
-    android:textSize="20sp"/>
+    android:layout_margin="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,8 @@ import com.queuedye.skiamerica.service.SkiAmericaDatabase;
 import com.queuedye.skiamerica.service.WeatherOnlineService;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -52,11 +54,17 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
     user = new MutableLiveData<>();
   }
 
+  public LiveData<List<SkiResort>> getDatabaseResorts() {
+    return database.getSkiResortDao().getAll();
+  }
+
   /**
    * This returns an observable list of {@link SkiResort} form the database
    * @return A live data bucket with a skiResort object within
    */
-  public LiveData<SkiResort> getskiResort() {return skiResort;}
+  public LiveData<SkiResort> getSkiResort() {
+    return skiResort;
+  }
 
   /**
    * sets the currently logged in user and creates a user in the database if one does not exist
@@ -104,6 +112,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
                 skiResort.setLatitude(location.getLatitude());
                 skiResort.setLongitude(location.getLongitude());
                 database.getSkiResortDao().insert(skiResort);
+                this.skiResort.postValue(skiResort);
               });
         })
     );

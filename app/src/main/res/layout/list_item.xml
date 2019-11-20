@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+
+      android:id="@+id/ski_resort_name_adapter"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toRightOf="parent"
+      android:layout_margin="8dp"
+      android:textSize="20sp"
+      android:textStyle="bold"/>
+
+    <TextView
+      android:id="@+id/max_temp_adapter"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="@id/ski_resort_name_adapter"
+      app:layout_constraintLeft_toRightOf="parent"
+      android:layout_margin="8dp"
+      android:textSize="20sp"/>
+
+    <TextView
+      android:id="@+id/min_temp_adapter"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="@id/max_temp_adapter"
+      app:layout_constraintLeft_toRightOf="parent"
+      android:layout_margin="8dp"
+      android:textSize="20sp"/>
+
+    <TextView
+      android:id="@+id/chance_of_snow_adapter"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintLeft_toRightOf="@id/max_temp_adapter"
+      app:layout_constraintTop_toBottomOf="@id/ski_resort_name_adapter"
+      android:layout_margin="8dp"
+      android:textSize="20sp"/>
+
+    <TextView
+      android:id="@+id/total_snow_fall"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintLeft_toRightOf="@id/min_temp_adapter"
+      app:layout_constraintTop_toBottomOf="@id/chance_of_snow_adapter"
+      android:layout_margin="8dp"
+      android:textSize="20sp"/>
+</LinearLayout>
