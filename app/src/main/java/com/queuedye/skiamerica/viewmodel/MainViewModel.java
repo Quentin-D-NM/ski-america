@@ -58,7 +58,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
    * Returns all of the SkiResort Objects saved to the data base
    * @return {@link LiveData} of a {@link List} of a {@link SkiResort}
    */
-  public LiveData<List<SkiResort>> getDatabaseResorts() {
+  public LiveData<List<SkiResort>> getResorts() {
     return database.getSkiResortDao().getAll();
   }
 

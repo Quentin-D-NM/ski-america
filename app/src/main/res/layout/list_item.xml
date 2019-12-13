@@ -1,54 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-
       android:id="@+id/ski_resort_name_adapter"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintLeft_toRightOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
       android:layout_margin="8dp"
       android:textSize="20sp"
       android:textStyle="bold"/>
 
     <TextView
+      android:id="@+id/high_temp_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/ski_resort_name_adapter"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/low_temp_label"
+      android:text="@string/high"
+      />
+
+    <TextView
       android:id="@+id/max_temp_adapter"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="@id/ski_resort_name_adapter"
-      app:layout_constraintLeft_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/high_temp_label"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/min_temp_adapter"
       android:layout_margin="8dp"
       android:textSize="20sp"/>
+
+    <TextView
+      android:id="@+id/low_temp_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/ski_resort_name_adapter"
+      app:layout_constraintStart_toEndOf="@id/high_temp_label"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="@string/low"
+      />
 
     <TextView
       android:id="@+id/min_temp_adapter"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="@id/max_temp_adapter"
-      app:layout_constraintLeft_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/low_temp_label"
+      app:layout_constraintStart_toEndOf="@id/max_temp_adapter"
+      app:layout_constraintEnd_toEndOf="parent"
       android:layout_margin="8dp"
       android:textSize="20sp"/>
+
+    <TextView
+      android:id="@+id/chance_of_snow_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/max_temp_adapter"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/total_snow_fall_label"
+      android:text="@string/chance_of_snow"
+      />
 
     <TextView
       android:id="@+id/chance_of_snow_adapter"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintLeft_toRightOf="@id/max_temp_adapter"
-      app:layout_constraintTop_toBottomOf="@id/ski_resort_name_adapter"
+      app:layout_constraintTop_toBottomOf="@id/chance_of_snow_label"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/total_snow_fall"
       android:layout_margin="8dp"
       android:textSize="20sp"/>
+
+    <TextView
+      android:id="@+id/total_snow_fall_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/min_temp_adapter"
+      app:layout_constraintStart_toEndOf="@id/chance_of_snow_label"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="@string/total_snow_fall_in_cm"
+      />
 
     <TextView
       android:id="@+id/total_snow_fall"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintLeft_toRightOf="@id/min_temp_adapter"
-      app:layout_constraintTop_toBottomOf="@id/chance_of_snow_adapter"
+      app:layout_constraintTop_toBottomOf="@id/total_snow_fall_label"
+      app:layout_constraintStart_toEndOf="@id/chance_of_snow_adapter"
+      app:layout_constraintEnd_toEndOf="parent"
       android:layout_margin="8dp"
       android:textSize="20sp"/>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

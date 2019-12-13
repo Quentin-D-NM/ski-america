@@ -62,15 +62,19 @@ public class SkiResortRecyclerAdapter extends RecyclerView.Adapter<SkiResortRecy
     name.setText(skiResorts.get(position).getName());
 
     TextView maxTemp = (TextView) holder.itemView.findViewById(R.id.max_temp_adapter);
+    //String maxTempStr = "Temp High: " + String.valueOf(skiResorts.get(position).getMaxTemp());
     maxTemp.setText(String.valueOf(skiResorts.get(position).getMaxTemp()));
 
     TextView minTemp = (TextView) holder.itemView.findViewById(R.id.min_temp_adapter);
+    //String minTempStr = "Temp Low: " + String.valueOf(skiResorts.get(position).getMinTemp());
     minTemp.setText(String.valueOf(skiResorts.get(position).getMinTemp()));
 
     TextView chanceOfSnow = (TextView) holder.itemView.findViewById(R.id.chance_of_snow_adapter);
+    //String chanceOfSnowStr = "Chance of Snow: " + String.valueOf(skiResorts.get(position).getChanceOfSnow());
     chanceOfSnow.setText(String.valueOf(skiResorts.get(position).getChanceOfSnow()));
 
     TextView totalSnowFall = (TextView) holder.itemView.findViewById(R.id.total_snow_fall);
+    //String totalSnowFallStr = "Total Snow Fall: " + String.valueOf(skiResorts.get(position).getTotalSnowFallCm());
     totalSnowFall.setText(String.valueOf(skiResorts.get(position).getTotalSnowFallCm()));
   }
 

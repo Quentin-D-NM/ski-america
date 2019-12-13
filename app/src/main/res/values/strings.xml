@@ -10,4 +10,8 @@
   <string name="ski_resort_name">Ski Resort Name</string>
   <string name="ski_resort_address">Ski Resort Address</string>
   <string name="dummy_address">1600 Amphitheatre Parkway, Mountain View, CA</string>
+  <string name="high">High</string>
+  <string name="low">Low</string>
+  <string name="chance_of_snow">Chance of Snow</string>
+  <string name="total_snow_fall_in_cm">Total Snow Fall in CM</string>
 </resources>
